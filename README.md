@@ -2,6 +2,8 @@
 
 A web application that analyses Queensland Government traffic data and allows users to search traffic monitoring sites across the state.
 
+<img width="1313" height="1299" alt="localhost_3000_" src="https://github.com/user-attachments/assets/6af4b6ee-c72d-4f07-9d42-c3c13b59037c" />
+
 ## Features
 
 - Search by road name, location or site ID
