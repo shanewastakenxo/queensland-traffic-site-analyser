@@ -1,0 +1,11 @@
+{
+  "name": "qld-traffic-project",
+  "version": "1.0.0",
+  "description": "Queensland traffic analysis using Python, pandas and Node.js",
+  "main": "server.js",
+  "scripts": {
+    "analyse": "python python/analyse.py",
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}

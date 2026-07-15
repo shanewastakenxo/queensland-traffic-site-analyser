@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Analyse average Queensland traffic volumes by monitoring site."
+    >
+
+    <title>Queensland Traffic Analyser</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <main class="page-container">
+
+        <header class="hero">
+            <div class="hero-content">
+                <div class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    Queensland open traffic data
+                </div>
+
+                <h1>
+                    Understand traffic patterns
+                    <span>without the clutter.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Search Queensland monitoring locations and instantly
+                    compare their busiest day, peak hour and weekday versus
+                    weekend traffic.
+                </p>
+            </div>
+
+            <div class="data-badge">
+                <span class="data-badge-label">Dataset</span>
+
+                <strong>84,032</strong>
+
+                <span>hourly traffic records</span>
+            </div>
+        </header>
+
+
+        <section class="control-panel">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-label">Find a location</span>
+                    <h2>Search traffic sites</h2>
+                </div>
+
+                <span class="site-count">
+                    1,799 monitoring sites
+                </span>
+            </div>
+
+            <label for="site-search" class="input-label">
+                Road name, location or site number
+            </label>
+
+            <div class="search-row">
+                <div class="search-input-wrapper">
+                    <svg
+                        class="search-icon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M11 4a7 7 0 1 0 4.9 12l4.1 4.1"
+                        ></path>
+                    </svg>
+
+                    <input
+                        id="site-search"
+                        type="search"
+                        placeholder="Try Bundaberg, Pacific Motorway or 121122"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <button id="search-button" type="button">
+                    Search
+                </button>
+            </div>
+
+            <p
+                id="search-message"
+                class="search-message"
+                aria-live="polite"
+            ></p>
+
+            <div class="select-area">
+                <label for="site-select" class="input-label">
+                    Available traffic sites
+                </label>
+
+                <select id="site-select">
+                    <option value="">
+                        Loading traffic sites...
+                    </option>
+                </select>
+            </div>
+
+        </section>
+
+
+        <section
+            id="site-details"
+            class="site-details hidden"
+        >
+
+            <div class="site-header">
+
+                <div class="site-heading">
+                    <span class="section-label">Selected location</span>
+
+                    <h2 id="road-name"></h2>
+
+                    <p id="description"></p>
+                </div>
+
+                <div class="site-id-badge">
+                    <span>Site ID</span>
+                    <strong id="site-id"></strong>
+                </div>
+
+            </div>
+
+
+            <div class="results-grid">
+
+                <article class="result-card">
+                    <div class="card-top">
+                        <span class="card-number">01</span>
+                        <span class="card-label">Busiest day</span>
+                    </div>
+
+                    <p
+                        id="busiest-day"
+                        class="main-result"
+                    ></p>
+
+                    <p
+                        id="busiest-day-volume"
+                        class="supporting-result"
+                    ></p>
+                </article>
+
+
+                <article class="result-card">
+                    <div class="card-top">
+                        <span class="card-number">02</span>
+                        <span class="card-label">Busiest hour</span>
+                    </div>
+
+                    <p
+                        id="busiest-hour"
+                        class="main-result"
+                    ></p>
+
+                    <p
+                        id="busiest-hour-volume"
+                        class="supporting-result"
+                    ></p>
+                </article>
+
+
+                <article class="result-card comparison-card">
+                    <div class="card-top">
+                        <span class="card-number">03</span>
+                        <span class="card-label">
+                            Weekday vs weekend
+                        </span>
+                    </div>
+
+                    <div class="traffic-comparison">
+
+                        <div class="comparison-item">
+                            <div class="comparison-heading">
+                                <span>Weekday</span>
+
+                                <strong id="weekday-average"></strong>
+                            </div>
+
+                            <div class="bar-background">
+                                <div
+                                    id="weekday-bar"
+                                    class="bar-fill weekday-bar"
+                                ></div>
+                            </div>
+                        </div>
+
+
+                        <div class="comparison-item">
+                            <div class="comparison-heading">
+                                <span>Weekend</span>
+
+                                <strong id="weekend-average"></strong>
+                            </div>
+
+                            <div class="bar-background">
+                                <div
+                                    id="weekend-bar"
+                                    class="bar-fill weekend-bar"
+                                ></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <p
+                        id="comparison-summary"
+                        class="comparison-summary"
+                    ></p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <p
+            id="error-message"
+            class="error-message"
+            aria-live="polite"
+        ></p>
+
+
+        <footer>
+            <p>
+                Built with love using Python, pandas and Node.js using
+                Queensland 2025 Government open traffic data.
+            </p>
+        </footer>
+
+    </main>
+
+    <script src="/app.js"></script>
+</body>
+</html>
